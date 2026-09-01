@@ -586,7 +586,10 @@ lbl_retired <- paste0(
 )
 # Map
 map <- leaflet() %>%
-  addProviderTiles(providers$CartoDB.Voyager) %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
+  #addProviderTiles(providers$Esri.WorldStreetMap) %>%
+  #addProviderTiles(providers$CartoDB.Positron) %>%
+  #addProviderTiles(providers$CartoDB.Voyager) %>% # NOTE: This option has been confirmed to now require an API key (subscription-based)
   # Layer 1A: Active plants switch to gas
   addCircleMarkers(
     data = activemap %>% filter(switchtogas == 1),
